@@ -12,7 +12,6 @@ import {
   HeartHandshake, 
   Instagram, 
   MessageCircle,
-  Flower2,
   Gem,
   Gift
 } from 'lucide-react';
@@ -106,7 +105,7 @@ export default function HomePage() {
               </h1>
 
               <p className="text-base sm:text-lg text-[#85796B] max-w-xl mx-auto lg:mx-0 leading-relaxed">
-                Discover bespoke handmade resin art, 24K gold flake alphabet keychains, eternal bridal garland preservation clocks, and personalized heirlooms crafted with non-yellowing UV art resin.
+                Discover bespoke luxury handmade resin creations, custom artisanal keepsakes, and timeless design pieces, poured with non-yellowing UV optical art resin.
               </p>
 
               {/* CTAs */}
@@ -187,20 +186,20 @@ export default function HomePage() {
                       Handcrafted Luxury Resin Studio
                     </h3>
                     <p className="text-xs text-stone-300 mt-1 leading-relaxed">
-                      Each heirloom piece is individually poured in small batches with diamond-grade optical art resin, real florals, and 24K gold foil.
+                      Each heirloom piece is individually hand-poured in small artisan batches with diamond-grade optical art resin and enduring hand-finished details.
                     </p>
                   </div>
                 </div>
 
-                {/* Floating Accessory Badge */}
+                {/* Floating Studio Quality Badge */}
                 <div className="absolute -bottom-6 -left-6 bg-white/95 backdrop-blur-md p-4 rounded-2xl shadow-elevation border border-[#E8DCCB] max-w-[200px] hidden sm:block">
                   <div className="flex items-center gap-2 mb-1">
                     <div className="w-7 h-7 rounded-full bg-[#C6A15B] flex items-center justify-center text-white">
-                      <Flower2 className="w-4 h-4" />
+                      <ShieldCheck className="w-4 h-4" />
                     </div>
-                    <span className="text-xs font-bold text-[#332820]">Real Florals</span>
+                    <span className="text-xs font-bold text-[#332820]">Studio Quality</span>
                   </div>
-                  <p className="text-[11px] text-[#85796B]">Delicately dehydrated & encased in optical resin.</p>
+                  <p className="text-[11px] text-[#85796B]">48-hour cured with diamond-grade optical clarity.</p>
                 </div>
 
                 {/* Floating Rating Pill */}

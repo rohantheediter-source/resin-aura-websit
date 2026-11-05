@@ -17,7 +17,7 @@ import {
 } from 'lucide-react';
 import { useStore } from '@/context/StoreContext';
 import ProductCard from '@/components/ProductCard';
-import { REVIEWS, INSTAGRAM_POSTS } from '@/lib/data';
+import { CATEGORIES, REVIEWS, INSTAGRAM_POSTS } from '@/lib/data';
 import { buildWhatsAppCustomOrderUrl } from '@/lib/utils';
 
 export default function HomePage() {
@@ -29,62 +29,7 @@ export default function HomePage() {
   const bestSellers = activeProducts.filter((p) => p.isBestSeller || p.isPopular).slice(0, 4);
   const newArrivals = activeProducts.filter((p) => p.isNewArrival).slice(0, 4);
 
-  const collections = [
-    {
-      name: 'Resin Alphabet Keychains',
-      slug: 'Resin+Alphabet+Keychains',
-      image: 'https://images.unsplash.com/photo-1618354691373-d851c5c3a990?q=80&w=800&auto=format&fit=crop',
-      desc: '24K gold foil & initial letters',
-    },
-    {
-      name: 'Custom Name Keychains',
-      slug: 'Custom+Name+Keychains',
-      image: 'https://images.unsplash.com/photo-1602751584552-8ba73aad10e1?q=80&w=800&auto=format&fit=crop',
-      desc: 'Floating 3D metallic names & flowers',
-    },
-    {
-      name: 'Resin Earrings',
-      slug: 'Resin+Earrings',
-      image: 'https://images.unsplash.com/photo-1630019852942-f89202989a59?q=80&w=800&auto=format&fit=crop',
-      desc: 'Celestial opals & 925 silver hooks',
-    },
-    {
-      name: 'Resin Pendants',
-      slug: 'Resin+Pendants',
-      image: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?q=80&w=800&auto=format&fit=crop',
-      desc: 'Emerald Aurora teardrops & gold foil',
-    },
-    {
-      name: 'Resin Necklaces',
-      slug: 'Resin+Necklaces',
-      image: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?q=80&w=800&auto=format&fit=crop',
-      desc: 'Gold veined crescents & fine chains',
-    },
-    {
-      name: 'Pressed Flower Resin Jewellery',
-      slug: 'Pressed+Flower+Resin+Jewellery',
-      image: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?q=80&w=800&auto=format&fit=crop',
-      desc: 'Real rose petals & faceted rings',
-    },
-    {
-      name: 'Gold Flake Resin Jewellery',
-      slug: 'Gold+Flake+Resin+Jewellery',
-      image: 'https://images.unsplash.com/photo-1618354691373-d851c5c3a990?q=80&w=800&auto=format&fit=crop',
-      desc: 'Geometric 24K leaf bangles & rings',
-    },
-    {
-      name: 'Custom Resin Gifts',
-      slug: 'Custom+Resin+Gifts',
-      image: 'https://images.unsplash.com/photo-1544816155-12df9643f363?q=80&w=800&auto=format&fit=crop',
-      desc: 'Bridal garland preservation clocks & frames',
-    },
-    {
-      name: 'Handmade Resin Accessories',
-      slug: 'Handmade+Resin+Accessories',
-      image: 'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=800&auto=format&fit=crop',
-      desc: 'Gilded geode coasters & ocean name plates',
-    },
-  ];
+  
 
   return (
     <div className="space-y-16 sm:space-y-24 pb-16">
@@ -213,9 +158,9 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 2. EXPLORE 9 RESIN COLLECTIONS */}
+      {/* 2. EXPLORE HANDCRAFTED RESIN COLLECTIONS (Clean Category Navigation - Zero Demo Products) */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-2xl mx-auto mb-12">
+        <div className="text-center max-w-2xl mx-auto mb-10">
           <p className="text-xs uppercase tracking-[0.25em] text-[#A9823D] font-bold mb-2">
             Curated Resin Categories
           </p>
@@ -223,37 +168,39 @@ export default function HomePage() {
             Explore Handcrafted Resin Collections
           </h2>
           <p className="text-sm text-[#85796B] mt-2">
-            Each creation is individually cast and cured for 48 hours to ensure diamond-grade transparency.
+            Select a category below to explore all available artisan creations in our catalog.
           </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 sm:gap-6">
-          {collections.map((col) => (
-            <Link
-              key={col.name}
-              href={`/products?category=${col.slug}`}
-              className="group relative rounded-2xl overflow-hidden bg-white border border-[#E8DCCB] shadow-card hover:shadow-elevation transition-all duration-300 flex flex-col"
-            >
-              <div className="aspect-[4/3] w-full overflow-hidden bg-[#F5EBDD]">
-                <img
-                  src={col.image}
-                  alt={col.name}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                />
-              </div>
-              <div className="p-4 text-left flex-1 flex flex-col justify-between">
-                <div>
-                  <h3 className="font-serif text-base font-bold text-[#332820] group-hover:text-[#A9823D] transition-colors leading-tight">
-                    {col.name}
-                  </h3>
-                  <p className="text-xs text-[#85796B] mt-1 line-clamp-1">{col.desc}</p>
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 gap-4 sm:gap-5">
+          {CATEGORIES.filter((c) => c !== 'All Products').map((categoryName, idx) => {
+            const slug = encodeURIComponent(categoryName);
+            return (
+              <Link
+                key={categoryName}
+                href={`/products?category=${slug}`}
+                className="group relative p-5 sm:p-6 rounded-2xl bg-white border border-[#E8DCCB] shadow-card hover:shadow-elevation hover:border-[#C6A15B] transition-all duration-300 flex flex-col justify-between"
+              >
+                <div className="flex items-center justify-between mb-4">
+                  <span className="text-[11px] font-mono font-bold text-[#C6A15B] tracking-wider">
+                    {String(idx + 1).padStart(2, '0')}.
+                  </span>
+                  <div className="w-8 h-8 rounded-full bg-[#F5EBDD] group-hover:bg-[#C6A15B] flex items-center justify-center transition-colors">
+                    <ArrowRight className="w-3.5 h-3.5 text-[#A9823D] group-hover:text-white transition-colors" />
+                  </div>
                 </div>
-                <span className="text-xs font-semibold text-[#A9823D] mt-3 block">
-                  Explore Category &rarr;
-                </span>
-              </div>
-            </Link>
-          ))}
+
+                <div>
+                  <h3 className="font-serif text-base sm:text-lg font-bold text-[#332820] group-hover:text-[#A9823D] transition-colors leading-snug">
+                    {categoryName}
+                  </h3>
+                  <span className="inline-block text-xs font-semibold text-[#85796B] group-hover:text-[#332820] mt-2">
+                    Browse Category &rarr;
+                  </span>
+                </div>
+              </Link>
+            );
+          })}
         </div>
       </section>
 

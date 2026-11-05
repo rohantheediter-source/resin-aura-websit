@@ -148,21 +148,45 @@ export default function HomePage() {
             {/* Right Column: Visual Collage */}
             <div className="lg:col-span-5 relative">
               <div className="relative mx-auto max-w-md lg:max-w-none">
-                {/* Main Hero Card - Studio Branding */}
-                <div className="relative rounded-3xl overflow-hidden shadow-elevation border-4 border-white aspect-[4/5] bg-white group">
-                  <img
-                    src="https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=1000&auto=format&fit=crop"
-                    alt="Handcrafted Resin Art Studio"
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent flex flex-col justify-end p-6 text-white">
-                    <span className="text-xs font-semibold uppercase tracking-wider text-[#C6A15B] mb-1">
+                {/* Main Hero Card - Luxury Studio Atelier (No old demo product images) */}
+                <div className="relative rounded-3xl overflow-hidden shadow-elevation border-4 border-white aspect-[4/5] bg-gradient-to-br from-[#332820] via-[#43352A] to-[#1F1712] flex flex-col justify-between p-6 sm:p-8 text-white group">
+                  {/* Subtle Luxury Ambient Glow & Light Shimmer */}
+                  <div className="absolute -top-12 -right-12 w-48 h-48 rounded-full bg-[#C6A15B]/20 blur-2xl pointer-events-none group-hover:scale-110 transition-transform duration-700" />
+                  <div className="absolute -bottom-12 -left-12 w-48 h-48 rounded-full bg-[#A9823D]/15 blur-2xl pointer-events-none" />
+
+                  {/* Studio Atelier Tag & Icon */}
+                  <div className="relative z-10 flex items-center justify-between">
+                    <span className="inline-flex items-center gap-1.5 bg-white/10 backdrop-blur-md border border-white/15 px-3 py-1 rounded-full text-[11px] font-semibold text-[#C6A15B] tracking-wider uppercase">
+                      <Sparkles className="w-3 h-3 text-[#C6A15B]" />
+                      Studio Atelier
+                    </span>
+                    <div className="w-9 h-9 rounded-full bg-white/10 backdrop-blur-md border border-[#C6A15B]/30 flex items-center justify-center text-[#C6A15B]">
+                      <Gem className="w-4 h-4" />
+                    </div>
+                  </div>
+
+                  {/* Studio Center Emblem */}
+                  <div className="relative z-10 my-auto flex flex-col items-center justify-center text-center py-6">
+                    <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full border border-[#C6A15B]/30 bg-gradient-to-b from-[#C6A15B]/20 to-transparent flex items-center justify-center shadow-gold mb-4 group-hover:scale-105 transition-transform duration-500">
+                      <Sparkles className="w-9 h-9 text-[#C6A15B]" />
+                    </div>
+                    <span className="font-serif text-2xl sm:text-3xl font-bold tracking-wide text-[#FFF9F0]">
+                      ResinAura
+                    </span>
+                    <span className="text-[11px] uppercase tracking-[0.25em] text-[#C6A15B] font-semibold mt-1">
+                      Artisan Studio
+                    </span>
+                  </div>
+
+                  {/* Preserved Typography & Story */}
+                  <div className="relative z-10 pt-4 border-t border-white/10">
+                    <span className="text-xs font-semibold uppercase tracking-wider text-[#C6A15B] mb-1 block">
                       Artisan Craftsmanship
                     </span>
-                    <h3 className="font-serif text-xl font-bold">
+                    <h3 className="font-serif text-xl font-bold text-white">
                       Handcrafted Luxury Resin Studio
                     </h3>
-                    <p className="text-xs text-stone-200 mt-1">
+                    <p className="text-xs text-stone-300 mt-1 leading-relaxed">
                       Each heirloom piece is individually poured in small batches with diamond-grade optical art resin, real florals, and 24K gold foil.
                     </p>
                   </div>

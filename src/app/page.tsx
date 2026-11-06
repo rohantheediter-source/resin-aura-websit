@@ -17,7 +17,7 @@ import {
 } from 'lucide-react';
 import { useStore } from '@/context/StoreContext';
 import ProductCard from '@/components/ProductCard';
-import { CATEGORIES, REVIEWS, INSTAGRAM_POSTS } from '@/lib/data';
+import { REVIEWS, INSTAGRAM_POSTS } from '@/lib/data';
 import { buildWhatsAppCustomOrderUrl } from '@/lib/utils';
 
 export default function HomePage() {
@@ -155,52 +155,6 @@ export default function HomePage() {
               </div>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* 2. EXPLORE HANDCRAFTED RESIN COLLECTIONS (Clean Category Navigation - Zero Demo Products) */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-2xl mx-auto mb-10">
-          <p className="text-xs uppercase tracking-[0.25em] text-[#A9823D] font-bold mb-2">
-            Curated Resin Categories
-          </p>
-          <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#332820]">
-            Explore Handcrafted Resin Collections
-          </h2>
-          <p className="text-sm text-[#85796B] mt-2">
-            Select a category below to explore all available artisan creations in our catalog.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 gap-4 sm:gap-5">
-          {CATEGORIES.filter((c) => c !== 'All Products').map((categoryName, idx) => {
-            const slug = encodeURIComponent(categoryName);
-            return (
-              <Link
-                key={categoryName}
-                href={`/products?category=${slug}`}
-                className="group relative p-5 sm:p-6 rounded-2xl bg-white border border-[#E8DCCB] shadow-card hover:shadow-elevation hover:border-[#C6A15B] transition-all duration-300 flex flex-col justify-between"
-              >
-                <div className="flex items-center justify-between mb-4">
-                  <span className="text-[11px] font-mono font-bold text-[#C6A15B] tracking-wider">
-                    {String(idx + 1).padStart(2, '0')}.
-                  </span>
-                  <div className="w-8 h-8 rounded-full bg-[#F5EBDD] group-hover:bg-[#C6A15B] flex items-center justify-center transition-colors">
-                    <ArrowRight className="w-3.5 h-3.5 text-[#A9823D] group-hover:text-white transition-colors" />
-                  </div>
-                </div>
-
-                <div>
-                  <h3 className="font-serif text-base sm:text-lg font-bold text-[#332820] group-hover:text-[#A9823D] transition-colors leading-snug">
-                    {categoryName}
-                  </h3>
-                  <span className="inline-block text-xs font-semibold text-[#85796B] group-hover:text-[#332820] mt-2">
-                    Browse Category &rarr;
-                  </span>
-                </div>
-              </Link>
-            );
-          })}
         </div>
       </section>
 

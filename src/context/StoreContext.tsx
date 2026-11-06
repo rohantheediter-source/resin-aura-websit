@@ -78,7 +78,9 @@ export function StoreProvider({ children }: { children: React.ReactNode }) {
   const [products, setProducts] = useState<Product[]>([]);
   const [orders, setOrders] = useState<Order[]>([]);
   const [settings, setSettings] = useState<StoreSettings>({
-    whatsappNumber: '919876543210',
+    adminName: 'Rohan Ahirwar',
+    adminPhone: '7223008721',
+    whatsappNumber: '917223008721',
     announcementText: '✨ Free Nationwide Delivery on orders above ₹999 | Handcrafted with 24K Gold Flakes & Real Botanicals',
     freeShippingThreshold: 999,
     flatShippingRate: 79,

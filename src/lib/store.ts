@@ -11,6 +11,8 @@ const PRODUCTS_STORAGE_KEY = 'resinaura_products_v4';
 const SETTINGS_STORAGE_KEY = 'resinaura_settings_v1';
 
 export interface StoreSettings {
+  adminName?: string;
+  adminPhone?: string;
   whatsappNumber: string;
   announcementText: string;
   freeShippingThreshold: number;
@@ -18,7 +20,9 @@ export interface StoreSettings {
 }
 
 const DEFAULT_SETTINGS: StoreSettings = {
-  whatsappNumber: '919876543210',
+  adminName: 'Rohan Ahirwar',
+  adminPhone: '7223008721',
+  whatsappNumber: '917223008721',
   announcementText: '✨ Free Nationwide Delivery on orders above ₹999 | Handcrafted with 24K Gold Flakes & Real Botanicals',
   freeShippingThreshold: 999,
   flatShippingRate: 79,

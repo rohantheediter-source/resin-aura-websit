@@ -35,7 +35,7 @@ export function generateSlug(text: string): string {
 
 export function getWhatsAppNumber(): string {
   // Configurable via env var, fallback to ResinAura business WhatsApp
-  return process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '919876543210';
+  return process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '917223008721';
 }
 
 export function buildWhatsAppCustomOrderUrl(details: {

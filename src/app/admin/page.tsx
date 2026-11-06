@@ -98,7 +98,9 @@ export default function AdminPage() {
 
   // Settings State
   const [settingsForm, setSettingsForm] = useState({
-    whatsappNumber: settings.whatsappNumber,
+    adminName: settings.adminName || 'Rohan Ahirwar',
+    adminPhone: settings.adminPhone || '7223008721',
+    whatsappNumber: settings.whatsappNumber || '917223008721',
     announcementText: settings.announcementText,
     freeShippingThreshold: settings.freeShippingThreshold,
     flatShippingRate: settings.flatShippingRate,
@@ -521,9 +523,10 @@ export default function AdminPage() {
             <h1 className="font-serif text-2xl font-bold text-[#332820]">
               ResinAura Admin Portal
             </h1>
-            <p className="text-xs text-[#85796B]">
-              Authorized administrative access only
-            </p>
+            <div className="pt-1 text-xs text-[#85796B] space-y-0.5">
+              <p className="font-semibold text-[#332820]">Administrator: Rohan Ahirwar</p>
+              <p className="text-[11px] text-[#A9823D]">Direct Contact: +91 7223008721</p>
+            </div>
           </div>
 
           {passcodeError && (
@@ -606,9 +609,18 @@ export default function AdminPage() {
             <span>ResinAura Command Studio</span>
           </div>
           <h1 className="font-serif text-3xl font-bold">Admin Dashboard</h1>
-          <p className="text-xs text-stone-300 mt-1">
-            Managing {products.length} handmade resin products across 9 categories
-          </p>
+          <div className="flex flex-wrap items-center gap-2.5 mt-2.5 text-xs">
+            <span className="inline-flex items-center gap-1.5 bg-white/10 px-3 py-1 rounded-full text-stone-200">
+              <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
+              Admin: <strong className="text-white">{settings.adminName || 'Rohan Ahirwar'}</strong>
+            </span>
+            <span className="inline-flex items-center gap-1.5 bg-white/10 px-3 py-1 rounded-full text-stone-200">
+              Phone: <strong className="text-[#C6A15B]">+{settings.whatsappNumber || '917223008721'}</strong>
+            </span>
+            <span className="text-xs text-stone-400 hidden sm:inline">
+              ({products.length} products &bull; {CATEGORIES.length - 1} categories)
+            </span>
+          </div>
         </div>
 
         <div className="flex flex-wrap items-center gap-3">
@@ -1139,9 +1151,37 @@ export default function AdminPage() {
           </div>
 
           <form onSubmit={handleSaveSettings} className="space-y-5 text-xs">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label className="block text-xs font-semibold text-[#332820] mb-1">
+                  Administrator Full Name
+                </label>
+                <input
+                  type="text"
+                  value={settingsForm.adminName}
+                  onChange={(e) => setSettingsForm({ ...settingsForm, adminName: e.target.value })}
+                  placeholder="e.g. Rohan Ahirwar"
+                  className="w-full bg-[#FFF9F0]/60 border border-[#E8DCCB] rounded-xl px-3.5 py-2.5 text-xs text-[#332820] focus:outline-none focus:border-[#C6A15B]"
+                />
+              </div>
+
+              <div>
+                <label className="block text-xs font-semibold text-[#332820] mb-1">
+                  Admin Direct Phone Number
+                </label>
+                <input
+                  type="text"
+                  value={settingsForm.adminPhone}
+                  onChange={(e) => setSettingsForm({ ...settingsForm, adminPhone: e.target.value })}
+                  placeholder="e.g. 7223008721"
+                  className="w-full bg-[#FFF9F0]/60 border border-[#E8DCCB] rounded-xl px-3.5 py-2.5 text-xs text-[#332820] focus:outline-none focus:border-[#C6A15B]"
+                />
+              </div>
+            </div>
+
             <div>
               <label className="block text-xs font-semibold text-[#332820] mb-1">
-                Artisan WhatsApp Business Number (e.g. 919876543210)
+                Artisan WhatsApp Business Number (with country code e.g. 917223008721)
               </label>
               <input
                 type="text"

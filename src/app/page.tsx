@@ -10,14 +10,13 @@ import {
   Clock, 
   Truck, 
   HeartHandshake, 
-  Instagram, 
   MessageCircle,
   Gem,
   Gift
 } from 'lucide-react';
 import { useStore } from '@/context/StoreContext';
 import ProductCard from '@/components/ProductCard';
-import { REVIEWS, INSTAGRAM_POSTS } from '@/lib/data';
+import { REVIEWS } from '@/lib/data';
 import { buildWhatsAppCustomOrderUrl } from '@/lib/utils';
 
 export default function HomePage() {
@@ -355,44 +354,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 7. INSTAGRAM GALLERY (@resinaura.store) */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-2xl mx-auto mb-10">
-          <div className="inline-flex items-center gap-1.5 text-xs font-bold text-[#A9823D] uppercase tracking-wider mb-1">
-            <Instagram className="w-4 h-4 text-[#C6A15B]" />
-            Follow @resinaura.store
-          </div>
-          <h2 className="font-serif text-3xl font-bold text-[#332820]">
-            Moments Captured On Instagram
-          </h2>
-          <p className="text-xs sm:text-sm text-[#85796B] mt-1">
-            Tag us in your unboxing reels and photos to be featured on our feed!
-          </p>
-        </div>
-
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4">
-          {INSTAGRAM_POSTS.map((post) => (
-            <a
-              key={post.id}
-              href="https://instagram.com/resinaura.store"
-              target="_blank"
-              rel="noreferrer"
-              className="group relative aspect-square rounded-2xl overflow-hidden bg-stone-100 border border-[#E8DCCB] shadow-sm block"
-            >
-              <img
-                src={post.image}
-                alt="ResinAura Instagram post"
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-              />
-              <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center p-3 text-center text-white">
-                <Instagram className="w-6 h-6 text-[#C6A15B] mb-1" />
-                <span className="text-[11px] font-bold">♥ {post.likes}</span>
-                <p className="text-[9px] text-stone-200 mt-1 line-clamp-2">{post.title}</p>
-              </div>
-            </a>
-          ))}
-        </div>
-      </section>
     </div>
   );
 }

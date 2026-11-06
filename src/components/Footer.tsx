@@ -13,6 +13,7 @@ import {
   CheckCircle2
 } from 'lucide-react';
 import { useStore } from '@/context/StoreContext';
+import { TelegramIcon } from './WhatsAppButton';
 
 export default function Footer() {
   const { settings } = useStore();
@@ -111,6 +112,15 @@ export default function Footer() {
               >
                 <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
                 WhatsApp Care
+              </a>
+              <a
+                href="https://t.me/+jIIGcRbh3Hc3MmU1"
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center gap-2 text-xs font-medium text-[#FFF9F0] hover:text-[#229ED9] transition-colors bg-[#FFF9F0]/10 px-3.5 py-2 rounded-full border border-[#FFF9F0]/15"
+              >
+                <TelegramIcon className="w-4 h-4 text-[#229ED9]" />
+                Telegram Channel
               </a>
             </div>
           </div>
